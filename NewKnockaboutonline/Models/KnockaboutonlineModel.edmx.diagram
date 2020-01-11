@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c5c181c750924b949eedaa04f5e2db37" Name="Diagram1">
+        <EntityTypeShape EntityType="KnockaboutonlineModel.CATEGORY" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.COLOR" Width="1.5" PointX="3.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.CONTACT_US" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.NEWS" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.ORDER" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.ORDER_DETAIL" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.PRODUCT" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.STORAGE" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.USER" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="KnockaboutonlineModel.FK_PRODUCT_CATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="KnockaboutonlineModel.FK_PRODUCT_COLOR" ManuallyRouted="false" />
+        <AssociationConnector Association="KnockaboutonlineModel.FK_NEWS_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="KnockaboutonlineModel.FK_ORDER_DETAIL_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="KnockaboutonlineModel.FK_ORDER_DETAIL_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="KnockaboutonlineModel.FK_PRODUCT_STORAGE" ManuallyRouted="false" />
+        <AssociationConnector Association="KnockaboutonlineModel.FK_PRODUCT_USER" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KnockaboutonlineModel.SIZE" Width="1.5" PointX="8.375" PointY="0.875" />
+        <AssociationConnector Association="KnockaboutonlineModel.FK_PRODUCT_SIZE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

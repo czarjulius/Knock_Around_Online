@@ -1,0 +1,25 @@
+﻿@using NewKnockaboutonline.Models;
+
+@{
+    foreach (var item in Model)
+    {
+        
+        <div class="owl-item product_slider_item">
+            <div class="product-item">
+                <div class="product discount">
+                    <a href='@Url.Action("Details", "Product", new {id = item.ProductId}, null)'>
+                        <div class="product_image">
+                            <img src='@Url.Content("~/Media/Products/" + item.ImageSm1)' alt="">
+                        </div>
+                    </a>
+                    <div class="favorite favorite_left"></div>
+                    <div class="product_info">
+                        <h6 class="product_name"><a href="single.html"> @item.ProductName (@item.COLOR.Color1)</a></h6>
+                        <div class="product_price">₦@item.Price</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+

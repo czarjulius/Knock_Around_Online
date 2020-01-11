@@ -1,0 +1,70 @@
+﻿@model IEnumerable<NewKnockaboutonline.Models.NEWS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add News", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USER.Username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @String.Format("{0:MM/dd/yyyy--hh: mm: ss}", item.CreatedDate)
+        </td>
+        <td>
+            @(item.Status == 1 ? "Active" : "Inactive")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USER.Username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NewsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NewsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NewsId })
+        </td>
+    </tr>
+}
+
+</table>

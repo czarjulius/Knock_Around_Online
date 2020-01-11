@@ -1,0 +1,100 @@
+﻿@using NewKnockaboutonline.Models
+@model NewKnockaboutonline.Models.ORDER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Order Details</h2>
+<hr />
+<div class="row container">
+    <div class="col-md-6">
+        <h4 class="text-center">
+            ORDER : <span class="badge badge-info"> @Html.DisplayFor(model => model.OrderId)</span>
+        </h4>
+        <hr />
+        <table class="table table-hover table-borderless table-responsive">
+
+            <tr>
+                <th>Order Date</th>
+                <td>@String.Format("{0:MM/dd/yyyy}", Model.OrderDate)</td>
+            </tr>
+            <tr>
+                <th>Payment Type</th>
+                <td>@Html.DisplayFor(model => model.PaymentType)</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>@Html.DisplayFor(model => model.Status)</td>
+            </tr>
+            <tr>
+                <th>Customer Name</th>
+                <td>@Html.DisplayFor(model => model.CustomerName)</td>
+            </tr>
+            <tr>
+                <th>Customer Phone</th>
+                <td>@Html.DisplayFor(model => model.CustomerPhone)</td>
+            </tr>
+            <tr>
+                <th>Customer Email</th>
+                <td>@Html.DisplayFor(model => model.CustomerEmail)</td>
+            </tr>
+            <tr>
+                <th>Customer Address</th>
+                <td>@Html.DisplayFor(model => model.CustomerAddress)</td>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <div class="col-md-6">
+        <br /><br />
+        <div class="card border-primary mb-3" style="max-width: 30rem;">
+            <div class="card-header text-center">Items</div>
+            <div class="card-body">
+                <table class="table table-hover table-borderless table-responsive">
+                    <tr class="table-borderless">
+                        <th scope="col">S/N</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+
+                    </tr>
+                    @{
+                    var i = 0;
+                    }
+                    @foreach (var item in Model.ORDER_DETAIL)
+                    {
+                    <tr>
+                        <td>@{ i++;} @i</td>
+                        <td>@item.PRODUCT.ProductName</td>
+                        <td>@item.Quantity</td>
+                        <td class="price">₦@(item.PRODUCT.Price * item.Quantity)</td>
+                    </tr>
+                    }
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td>₦<b id="total"></b></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    var itemPrice = document.querySelectorAll('.price');
+
+    var total = 0;
+    for (var i = 0; i < itemPrice.length; i++) {
+        var price = parseFloat(itemPrice[i].innerHTML.replace('₦', ''));
+        total += price;
+        console.log(price);
+    }
+    document.querySelector('#total').textContent = total;
+</script>

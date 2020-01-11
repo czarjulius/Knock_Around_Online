@@ -1,0 +1,23 @@
+﻿@using NewKnockaboutonline.Models;
+@model List<CATEGORY>
+
+
+    <div class="card mb-3">
+            
+        <ul class="list-group list-group-flush">
+            @foreach (var item in Model)
+    {
+            <a href="@Url.Action("Index", "Home", new { page = 1, category = @item.CategoryId }, null)">
+        <li class="list-group-item btn" style="background-image: url('../../../../Media/Image/Bg/bgwood.jpg');">
+
+            @item.Name
+        </li>
+
+        </a>
+
+
+}
+        </ul>           
+    </div>  
+   
+

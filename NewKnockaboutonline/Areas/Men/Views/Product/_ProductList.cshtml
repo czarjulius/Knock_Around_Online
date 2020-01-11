@@ -1,0 +1,36 @@
+﻿@using NewKnockaboutonline.Models;
+@*@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<PRODUCT>*@
+
+
+@{
+    foreach (var item in Model)
+    {
+
+        <!-- Product 1 -->
+    <div class="product-item  @item.CATEGORY.Name">
+        <div class="product discount product_filter">
+            <a href='@Url.Action("Details", "Product", new {id = item.ProductId}, null)'>
+                <div class="product_image">
+                    <img src='@Url.Content("~/Media/Products/" + item.ImageSm1)' alt="">
+                </div>
+            </a>
+            <div class="favorite favorite_left"></div>
+            <div class="product_info">
+                <h6 class="product_name"><a href="single.html"> @item.ProductName (@item.COLOR.Color1)</a></h6>
+                <div class="product_price">₦@item.Price</div>
+            </div>
+        </div>
+        <div class="red_button add_to_cart_button"><a href='@Url.Action("Details", "Product", new {id = item.ProductId}, null)'>View Detail</a></div>
+    </div>
+
+    }
+}
+
+@*<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Home", new { page = page, category = ViewBag.category }))
+</div>*@
